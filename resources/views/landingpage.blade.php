@@ -425,31 +425,15 @@ td.selected {
 
     <div class="container text-center mt-4">
         <h2>Remine Selfie Photo Studio</h2>
-        <div class="d-flex justify-content-center flex-wrap">
-            <div class="package" data-package="Biasa">
-                <img src="images/package/regular.jpeg" alt="Biasa">
-                <p class="price">$10</p>
-                <p>Basic package for casual selfies</p>
-                <button>Book Now</button>
-            </div>
-            <div class="package" data-package="Abstrak">
-                <img src="images/package/abstrak.jpeg" alt="Abstrak">
-                <p class="price">$20</p>
-                <p>Abstract backgrounds for artistic selfies</p>
-                <button>Book Now</button>
-            </div>
-            <div class="package" data-package="Proyektor">
-                <img src="images/package/proyektor.jpeg" alt="Proyektor">
-                <p class="price">$30</p>
-                <p>Projector setup for dynamic selfies</p>
-                <button>Book Now</button>
-            </div>
-            <div class="package" data-package="Spotlight">
-                <img src="images/package/spotlight.jpeg" alt="Spotlight">
-                <p class="price">$40</p>
-                <p>Spotlight setups for stylish selfies</p>
-                <button>Book Now</button>
-            </div>
+            <div class="d-flex justify-content-center flex-wrap">
+                @foreach ($paket as $p)
+                <div class="package" data-package={{$p->name}}>
+                    <img src={{$p->image}} alt={{$p->name}}>
+                    <p class={{$p->price}}>$10</p>
+                    <p>{{$p->shprtdesc}}</p>
+                    <button id={{$p->id}}>Book Now</button>
+                </div>    
+            @endforeach
         </div>
 
         <form class="reservation-form">
